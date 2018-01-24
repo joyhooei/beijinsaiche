@@ -55,6 +55,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="Na7zPOjV2UxqLrNW6iGnEjvGuiS8EXHR" >
+        </meta-data>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -2,6 +2,7 @@ package bjsc.com.cn.beijinsaiche.util;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -94,7 +95,7 @@ public class LocationUtil {
             String province = location.getProvince();
             if(!TextUtils.isEmpty(location.getCity())){
                 city = location.getCity();
-              //  Log.d("lee",city);
+                Log.d("lee",city);
                 if(TAG){
                     TAG=false;
                     Listener.localComplete(city);

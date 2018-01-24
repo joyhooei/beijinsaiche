@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import bjsc.com.cn.beijinsaiche.R;
+import bjsc.com.cn.beijinsaiche.util.LocationUtil;
 import bjsc.com.cn.beijinsaiche.util.ParseJsonUtil;
 import bjsc.com.cn.beijinsaiche.util.WeatherUtil;
 
@@ -65,15 +66,31 @@ public class HomePageFragment extends Fragment {
         cityWewather=inflate.findViewById(R.id.cityweather);
         temp=inflate.findViewById(R.id.temp);
         tmpSrc=inflate.findViewById(R.id.weather_src);
-        city.setText("北京");
-        getWeather("北京");
+        getLocation();
         return inflate;
+    }
+
+    private void getLocation() {
+        LocationUtil.init(getActivity());
+        LocationUtil.startLocal(new LocationUtil.localCompleteListener() {
+            @Override
+            public void localComplete(final String city1) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        city.setText(city1);
+                    }
+                });
+                getWeather(city1);
+            }
+        },true);
     }
 
     private void getWeather(String city){
         WeatherUtil.getWeather(getActivity(), city, new WeatherUtil.getWeatherListener() {
             @Override
             public void getWeatherComplete(String date) {
+
                 getWeatherData(date);
             }
         });
@@ -132,6 +149,11 @@ public class HomePageFragment extends Fragment {
                 }
             }
         });
+    }
 
+    @Override
+    public void onDestroyView() {
+        LocationUtil.stopLocal();
+        super.onDestroyView();
     }
 }

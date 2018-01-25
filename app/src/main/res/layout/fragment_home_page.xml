@@ -1,56 +1,179 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="bjsc.com.cn.beijinsaiche.MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="bjsc.com.cn.lottery.MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="本地天气"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
 
     <LinearLayout
-        android:background="#40A8E7"
-        android:layout_margin="5dp"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="60dp">
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        android:background="#40A8E7"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_weight="2"
-            android:layout_width="0dp"
             android:id="@+id/city"
-            android:text="- -"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:layout_weight="2"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="2"
+            android:text="- -"
+            android:textColor="#ffffff"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_weight="2"
-                android:layout_width="0dp"
                 android:id="@+id/cityweather"
-                android:text="- -"
-                android:textSize="18sp"
-                android:textColor="#ffffff"
-                android:layout_marginLeft="5dp"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_weight="2"
-                android:id="@+id/weather_src"
-                android:src="@drawable/ic_unknow"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:text="- -"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/weather_src"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:src="@drawable/ic_unknow"/>
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/temp"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_weight="2"
-            android:id="@+id/temp"
             android:src="@drawable/ic_na"/>
-
-
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/wanfan"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_share"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="玩法说明"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D9D9D9"></ImageView>
+
+ <LinearLayout
+     android:id="@+id/shuoming"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_warning"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="免责说明"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D9D9D9"></ImageView>
+
+    <LinearLayout
+        android:id="@+id/updata"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_checknew"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="检查更新"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D9D9D9"></ImageView>
+
+ <LinearLayout
+     android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_qqgroup"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="登陆注册"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D9D9D9"></ImageView>
+</LinearLayout>

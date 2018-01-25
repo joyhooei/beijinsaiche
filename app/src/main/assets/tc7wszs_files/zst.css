@@ -1,0 +1,103 @@
+/* CSS Document */
+BODY {background-image: url(image/ztbg.gif);margin-top: 0px;margin-bottom: 0px;FONT-SIZE: 13px}
+TD,TH {FONT: 13px/18px Arial, Tahoma, Helvetica, sans-serif}
+A:link { COLOR: #000; TEXT-DECORATION: none}
+A:visited { COLOR: #000; TEXT-DECORATION: none}
+A:hover { COLOR: #F00; TEXT-DECORATION: underline}
+.defaul {FONT-SIZE: 13px;line-height: 150%;}
+.search{ font-size:10pt;}
+.dibu {font-size: 14pt;color: #800000;font-weight: bold;line-height: 15pt}
+.biaoti {COLOR: #800080;font-size: 28pt;text-align: center;font-weight: bold;line-height: 30pt;font-family: "楷体_GB2312"}
+.title1 {COLOR: #800080;font-size: 28pt;text-align: center;font-weight: bold;line-height: 30pt;font-family: "楷体_GB2312"; background-color:#FFF;width:960px;padding:15px 0; margin:0}
+.red{ FONT-SIZE: 13px;line-height: 150%;color:#F00}
+.img{margin:-1px 0 5px -2px;display:block; text-align:center;width:42;height:42;border:0}
+.img1{margin:3px 0px 3px 5px;display:block; text-align:center;width:180;height:70;border:0}
+.table1{ background-color:#F0F8FF; border-collapse:collapse; text-align:center; font-size:10pt}
+.table2{ background-color:#C1E0FF; border-collapse:collapse; text-align:center; font-size:10pt}
+.tbdef{border-collapse:collapse; text-align:center; font-size:10pt}
+
+#toptitle {background-color:#FFF;width:960px;padding:15px 0;margin:0 auto;text-align:center}
+/*背景色*/
+.toptr{ text-align:center;color: #FFFFFF;background-color:#0080c0}
+.bgt { background-color:#0080c0}/*表头背景色*/
+/*.h1{ background-color: #FDFEE0}红球一区背景色*/
+/*.h2{ background-color: #FEE6DE}红球二区背景色*/
+.bgh1, .FDF{ background-color: #FDFEE0}/*红球一区背景色*/
+.bgh2, .FEE{ background-color: #FEE6DE}/*红球二区背景色*/
+/*.h3{ background-color: #FDFEE0}红球三区背景色*/
+.l1, .DAF{ background-color:#DAFCFE}/*蓝球一区背景色*/
+.l2, .DBE{ background-color:#DBE8FD}/*蓝球二区背景色*/
+.l3{ background-color:#E9FDBB}
+.l4{background-color:#FAEFFE}
+.bg, .C1E{ background-color:#C1E0FF}
+.bg1, .bCef, .cef{ background-color:#ceffff}/*背景色1*/
+.bg2, .bCfc, .cfc{ background-color:#CFC}/*背景色2*/
+.bg3, .bCbd, .cbd{ background-color:#CBDDFC}/*背景色2*/
+.bcf{background-color:#BCF3E9}
+.bg4{ background-color:#F0F8FF}
+.fbg, .f4d{background-color:#fff4d2}
+.fbg1, .d9d{background-color:#ddf9de}
+.fbg2, .feb{background-color:#feebe9}
+.fbg3, .e6f{background-color:#e1e6ff}
+.fbg4, .bcd{background-color:#bcd5fe}
+
+.dx{ cursor:text;}/*点选3行样式*/
+.dx3{ cursor:pointer;}/*点选3行样式*/
+.dxtr{ color: #FFF; background-color:#FFF; height:18px; text-align:center; }
+.tjtr{ color:#F00; background-color:#F0F8FF; height:18px}
+
+/*字体*/
+.aria { font-family:Arial}
+.ab12 { font-family:Arial;font-weight: bold;font-size: 12pt;}
+.arblack{ font-family:Arial black;font-size: 10pt;font-weight: bold;}/*粗黑*/
+.arred { color:#F00;font-family:Arial black;font-size: 10pt;font-weight: bold;}/*粗红*/
+.arred12{font-size: 12pt;color: #D90000;font-family:Arial black;width:36px}
+.arblue12{font-size: 12pt;color: #0000DB;font-family:Arial black;width:36px}
+.ar12r{font-size: 12pt;color: #D90000;font-family:Arial black;}
+.ar12b{font-size: 12pt;color: #0000DB;font-family:Arial black;}
+.b {font-weight: bold}/*加粗*/
+.baizi { text-align:center;color: #FFFFFF;}
+.lanzi, .F_B, .l10{font-size: 10pt;color: #00F;}
+.hongzi,.F_R, .h10{font-size: 10pt;color: #F00}
+.cuhong{ font-size: 10pt;color: #e10000; font-weight:bold;}/*粗红*/
+.culan{ font-size: 10pt;color: #00F; font-weight:bold;}/*粗蓝*/
+.b10, .font1{color: #0000B5; font-size: 10pt;font-weight: bold;}
+.r10, .font2{color: #D90000; font-size: 10pt;font-weight: bold;}
+/*.font1 {font-size: 10pt;color: #0000B5; font-weight:bold;}
+.font2 {font-size: 10pt;color: #D50000; font-weight:bold;}*/
+.fjo2, .M{ color: #c0c0c0;}
+.fjo3, .N{ color: #afafaf}
+.f12pt{font-size: 12pt}
+.f14pt{font-size: 14pt}
+.f10red{color: #F00;font-size: 10pt; width:32px}
+.f10blue{color: #00F;font-size: 10pt; width:32px}
+.f14ablue { font-family:Arial black;color: #0000DB; font-size: 12pt; }
+.f14ared { font-family:Arial black;color: #D90000; font-size: 12pt; }
+.font3d1{ color:#C00; background-color:#CBDDFC; width:16px; font-weight:bold}
+.font3d2{ color:#009; background-color:#CBDDFC; width:16px; font-weight:bold}
+.grey{font-size: 10pt;color: #C0C0C0;}
+.yinbaizi {color: #C0C0C0}
+.h201{color: #F00;font-size: 12pt;font-family:Arial}
+.h12, .12hong {color: #C00; font-size: 12pt; font-family:Arial, Helvetica, sans-serif }
+.l12, .12lan {color: #009; font-size: 12pt;font-family:Arial, Helvetica, sans-serif}
+.l201{color: #00F;font-size: 12pt;font-family:Arial}
+.lan12{font-size: 12pt;color: #0000DB;font-weight:bold; font-family:Arial, Helvetica, sans-serif;width:36px}
+.p312b{font-size: 12pt;color: #0000DB;font-weight:bold; font-family:Arial, Helvetica, sans-serif;width:45px}
+.p3r{ width:18px; background-color:#CBDDFC; color:#C00;font-weight:bold; }
+.p3b{ width:18px; background-color:#CBDDFC; color:#009;font-weight:bold; }
+.p5b{ width:16px; background-color:#CBDDFC; color:#009;font-weight:bold; }
+.p3j{ color:#F00; width:30px}
+.p3o{ color:#00F; width:30px}
+.qlkj{color:#F00; background-color:#FEEFCC; width:20px}
+.red9pt, .r9{font-size: 9pt;text-align: center;font-weight: bold;color: #F00;}
+.sdda{ color:#F00; width:18px}
+.sdxiao{ color:#00F; width:18px}
+.sdo{ color:#F00; width:28px}
+.sdji{ color:#00f; width:28px}
+.sdkj{color: #F00;font-size: 12pt; width:32px}
+.sdsj{font-size: 12pt; width:32px}
+.S_R{letter-spacing: -2px;color:#F00}
+.S_B{letter-spacing: -2px;color:#00F}
+/*sup{color:#FF0000}*/
+.9pt{ font-size:9pt}
+.12pt {font-size: 12pt}

@@ -4,15 +4,19 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               tools:context="bjsc.com.cn.lottery.MainActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center_horizontal"
+    android:layout_height="50dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:text="走势信息"
-        android:textColor="#f00"
+        android:textColor="#fff"
         android:textSize="20sp"/>
-
+</LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -310,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="其他地区彩票"
-                    android:textColor="#b8152d"
+                    android:textColor="#F00"
                     android:textSize="18sp"/>
             </LinearLayout>
 
@@ -359,6 +363,14 @@
                         android:text="体彩七位数"/>
                 </LinearLayout>
             </LinearLayout>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:textSize="16sp"
+                android:textColor="#F00"
+                android:layout_width="wrap_content"
+                android:text="注*：走势图每3-5天更新一次！"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="免责说明"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:textSize="22sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="247dp"
         android:text="1、彩市存在风险，请谨慎投资！\n\n2、公益为主、娱乐其次、中奖第三！\n\n3、福彩宗旨：扶老、助残、济困、救孤！\n\n
         4、体彩精神：责任、诚信、团结、创新！\n\n5、本软件为投资辅助工具，由于不可抗力因数，不能保证所有功能的正确性，不提供任何投资建议，所有风险由投资者个人承担。
 "
         android:textColor="@color/red"/>
 
-</RelativeLayout>
+</LinearLayout>

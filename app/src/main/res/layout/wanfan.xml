@@ -21,11 +21,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/ssq"
-        android:layout_height="40dp">
+        android:layout_height="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:text="双色球玩法说明"
-            android:textColor="#000"
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -46,11 +45,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/dlt"
-        android:layout_height="40dp">
+        android:layout_height="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:text="大乐透玩法说明"
-            android:textColor="#000"
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -71,11 +69,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/fc3d"
-        android:layout_height="40dp">
+        android:layout_height="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:text="福彩3D玩法说明"
-            android:textColor="#000"
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -96,11 +93,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/pl3"
-        android:layout_height="40dp">
+        android:layout_height="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:text="排列3玩法说明"
-            android:textColor="#000"
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
@@ -120,11 +116,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:id="@+id/qlc"
-        android:layout_height="40dp">
+        android:layout_height="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:text="七乐彩玩法说明"
-            android:textColor="#000"
             android:textSize="20sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"

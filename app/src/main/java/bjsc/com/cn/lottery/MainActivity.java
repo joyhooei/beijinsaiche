@@ -1,12 +1,14 @@
 package bjsc.com.cn.lottery;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
@@ -17,23 +19,36 @@ import bjsc.com.cn.lottery.adapter.MainAdapter;
 import bjsc.com.cn.lottery.fragment.HomePageFragment;
 import bjsc.com.cn.lottery.fragment.KaijiangFragment;
 import bjsc.com.cn.lottery.fragment.ZoushiFragment;
+import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
 
     private ViewPager viewPager;
     private BottomNavigationBar bottomNavigationBar;
-    private BadgeItem badgeItem; //添加角标
+ //   private BadgeItem badgeItem; //添加角标
     private List<Fragment> mList; //ViewPager的数据源
+    public static String MESSAGE_RECEIVED_ACTION="getmessage";
+    public static String KEY_MESSAGE="message";
+    public static String  KEY_EXTRAS="key";
+    public static boolean isForeground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(getApplicationContext());
         setContentView(R.layout.activity_main);
-
+        isForeground=true;
         initBottomNavigationBar();
         initViewPager();
        // Toast.makeText(this,"正在获取天气..",Toast.LENGTH_LONG).show();
         initData();
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if(null!=extras){
+            String ss  = extras.getString("message");
+            setCostomMsg(ss);
+        }
     }
 
     private void initData() {
@@ -71,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private void initBottomNavigationBar() {
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar.setTabSelectedListener(this);
-        badgeItem = new BadgeItem()
+        /*badgeItem = new BadgeItem()
                 .setHideOnSelect(true) //设置被选中时隐藏角标
-                ;
+                ;*/
         /**
          * 设置模式
          * 1、BottomNavigationBar.MODE_DEFAULT 默认 
@@ -115,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
         bottomNavigationBar.addItem(new BottomNavigationItem( R.drawable.ic_local_atm_black_24dp, "最新开奖").setActiveColorResource(R.color.white))
                 .addItem(new BottomNavigationItem(R.drawable.ic_timeline_black_24dp, "最新势图").setActiveColorResource(R.color.white))
-                .addItem(new BottomNavigationItem(R.drawable.ic_home_black_24dp, "更多").setActiveColorResource(R.color.white).setBadgeItem(badgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.ic_home_black_24dp, "更多").setActiveColorResource(R.color.white))
                 .setFirstSelectedPosition(0)
                 .initialise(); //所有的设置需在调用该方法前完成
 
@@ -155,6 +170,27 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+    AlertDialog alertDialog = null;
+    private void setCostomMsg(String msg){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+        builder.setTitle("提示信息");
+        builder.setMessage(msg);
+        builder.setIcon(R.drawable.btn_about_on);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -40,6 +42,8 @@ public class KaijiangFragment extends Fragment {
 
     private Spinner spinner;
     private ListView  listview;
+    private WebView webView;
+    private SharedPreferences sp;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,7 +65,32 @@ public class KaijiangFragment extends Fragment {
 
             }
         });
+        webView=inflate.findViewById(R.id.webview);
+        sp=  getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        boolean go = sp.getBoolean("GO", false);
+        if(go){
+            listview.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+            showWeb();
+        }else{
+            webView.setVisibility(View.GONE);
+        }
         return inflate;
+    }
+
+    private void showWeb() {
+        WebSettings webSettings = webView.getSettings();
+        webSettings .setSupportZoom(false);
+        webSettings .setUseWideViewPort(true);
+        webSettings .setLoadWithOverviewMode(true);
+        webSettings .setLoadsImagesAutomatically(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webView.setVisibility(View.VISIBLE);
+        String showurl = sp.getString("SHOWURL", "");
+        Log.d("lee","打开：："+showurl);
+        webView.loadUrl("https://www.baidu.com/");
     }
 
     private void showKaijiangView(List<KaiJiangInfo>  list) {

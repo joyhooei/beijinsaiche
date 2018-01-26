@@ -30,11 +30,11 @@ public class WanFaActivity extends Activity implements View.OnClickListener {
         ssq.setOnClickListener(this);
         dlt=findViewById(R.id.dlt);
         dlt.setOnClickListener(this);
-        fc3d=findViewById(R.id.ssq);
+        fc3d=findViewById(R.id.fc3d);
         fc3d.setOnClickListener(this);
-        pl3=findViewById(R.id.ssq);
+        pl3=findViewById(R.id.pl3);
         pl3.setOnClickListener(this);
-        qlc=findViewById(R.id.ssq);
+        qlc=findViewById(R.id.qlc);
         qlc.setOnClickListener(this);
         initPopu();
 
@@ -54,19 +54,23 @@ public class WanFaActivity extends Activity implements View.OnClickListener {
         switch (v.getId()){
             case R.id.ssq:
                 popu.showAtLocation(v, Gravity.NO_GRAVITY, 0, 0);
-                textView.setText(R.string.dlt);
+                textView.setText(R.string.ssq);
                 break;
             case R.id.dlt:
-
+                popu.showAtLocation(v, Gravity.NO_GRAVITY, 0, 0);
+                textView.setText(R.string.dlt);
                 break;
             case R.id.fc3d:
-
+                popu.showAtLocation(v, Gravity.NO_GRAVITY, 0, 0);
+                textView.setText(R.string.fc3d);
                 break;
             case R.id.pl3:
-
+                popu.showAtLocation(v, Gravity.NO_GRAVITY, 0, 0);
+                textView.setText(R.string.pl3);
                 break;
             case R.id.qlc:
-
+                popu.showAtLocation(v, Gravity.NO_GRAVITY, 0, 0);
+                textView.setText(R.string.qlc);
                 break;
 
         }

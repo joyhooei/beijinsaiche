@@ -4,14 +4,19 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               tools:context="bjsc.com.cn.lottery.MainActivity">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="50dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:textSize="20sp"
-        android:textColor="#b8152d"
-        android:text="选择彩票种类" />
+        android:textColor="#fff"
+        android:text="开奖彩票种类" />
+</RelativeLayout>
     <Spinner
         android:id="@+id/spinner"
         android:layout_marginLeft="5dp"
@@ -21,8 +26,14 @@
         style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_height="40dp"></Spinner>
     <ListView
+        android:visibility="visible"
         android:id="@+id/listview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
+    <WebView
+        android:visibility="gone"
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></WebView>
 
 </LinearLayout>

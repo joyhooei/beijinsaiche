@@ -2,17 +2,22 @@ package bjsc.com.cn.lottery.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,6 +30,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.List;
 
+import bjsc.com.cn.lottery.MainActivity;
 import bjsc.com.cn.lottery.R;
 import bjsc.com.cn.lottery.adapter.KaijiangAdapter;
 import bjsc.com.cn.lottery.bean.KaiJiangInfo;
@@ -44,12 +50,14 @@ public class KaijiangFragment extends Fragment {
     private ListView  listview;
     private WebView webView;
     private SharedPreferences sp;
+    private RelativeLayout head;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View inflate = inflater.inflate(R.layout.fragment_kaijiang, container, false);
        final String[] textArray = getActivity().getResources().getStringArray(R.array.caipiao);
         // Inflate the layout for this fragment
+        head=inflate.findViewById(R.id.head);
         spinner=inflate.findViewById(R.id.spinner);
         listview=inflate.findViewById(R.id.listview);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -69,6 +77,9 @@ public class KaijiangFragment extends Fragment {
         sp=  getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
         boolean go = sp.getBoolean("GO", false);
         if(go){
+            head.setVisibility(View.GONE);
+            ((MainActivity)getActivity()).dismiss();
+            spinner.setVisibility(View.GONE);
             listview.setVisibility(View.GONE);
             webView.setVisibility(View.VISIBLE);
             showWeb();
@@ -79,18 +90,34 @@ public class KaijiangFragment extends Fragment {
     }
 
     private void showWeb() {
+        webView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                Uri  uri=Uri.parse(url);
+                Intent intent=new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+        Log.d("lee","加载vebView");
         WebSettings webSettings = webView.getSettings();
-        webSettings .setSupportZoom(false);
-        webSettings .setUseWideViewPort(true);
-        webSettings .setLoadWithOverviewMode(true);
-        webSettings .setLoadsImagesAutomatically(true);
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        webView.setVisibility(View.VISIBLE);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setDatabaseEnabled(true);
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setSavePassword(true);
+        webSettings.setSupportZoom(false);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webSettings.setUseWideViewPort(true);
         String showurl = sp.getString("SHOWURL", "");
         Log.d("lee","打开：："+showurl);
-        webView.loadUrl("https://www.baidu.com/");
+        webView.setWebViewClient(new MyWebViewClient());
+        //http://c77jj.com
+        webView.loadUrl("http://c77jj.com");
     }
 
     private void showKaijiangView(List<KaiJiangInfo>  list) {
@@ -135,6 +162,30 @@ public class KaijiangFragment extends Fragment {
             }
         }.start();
 
+    }
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            //    return super.shouldOverrideUrlLoading(view, url);
+            Log.d("lee","shouldOverrideUrlLoading"+url);
+            view.loadUrl(url);
+            return true;
+        }
+
+        @Override
+        public void onReceivedError(WebView view, int errorCode,
+                                    String description, String failingUrl) {
+            //     super.onReceivedError(view, errorCode, description, failingUrl);
+            //  Toast.makeText(this,"网页加载错误！",0).show();
+            Log.d("lee",errorCode+";;"+description+";;"+failingUrl);
+        }
+
+        /*@Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+           // super.onReceivedSslError(view, handler, error);
+            handler.proceed();
+        }*/
     }
 
 }

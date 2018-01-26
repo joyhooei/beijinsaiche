@@ -55,7 +55,7 @@ public class Splash_Activity extends Activity {
     }
 
     private void getService() {
-        StringRequest request = new StringRequest(Request.Method.GET, "http://tow.caiqiqi08.com/Lottery_server/get_init_data.php?type=android&appid=237573041241", new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.GET, "http://tow.caiqiqi08.com/Lottery_server/get_init_data.php?type=android&appid=test", new Response.Listener<String>() {
             @Override
             public void onResponse(String string) {
                 Log.d("lee",string);

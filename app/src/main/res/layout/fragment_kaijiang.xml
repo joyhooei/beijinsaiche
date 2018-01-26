@@ -5,6 +5,7 @@
               android:orientation="vertical"
               tools:context="bjsc.com.cn.lottery.MainActivity">
 <RelativeLayout
+    android:id="@+id/head"
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
     android:layout_height="50dp">
@@ -34,6 +35,6 @@
         android:visibility="gone"
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></WebView>
+        android:layout_height="match_parent"></WebView>
 
 </LinearLayout>

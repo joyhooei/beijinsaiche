@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -21,10 +22,10 @@ import bjsc.com.cn.lottery.fragment.KaijiangFragment;
 import bjsc.com.cn.lottery.fragment.ZoushiFragment;
 import cn.jpush.android.api.JPushInterface;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener{
 
     private ViewPager viewPager;
-    private BottomNavigationBar bottomNavigationBar;
+    private  BottomNavigationBar bottomNavigationBar;
  //   private BadgeItem badgeItem; //添加角标
     private List<Fragment> mList; //ViewPager的数据源
     public static String MESSAGE_RECEIVED_ACTION="getmessage";
@@ -193,4 +194,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         alertDialog.show();
     }
 
+    public  void dismiss(){
+        bottomNavigationBar.setVisibility(View.GONE);
+    }
 }
